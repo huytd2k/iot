@@ -8,7 +8,8 @@ authors = ["huytran"]
 python = "^3.8"
 fastapi = "^0.72.0"
 asyncio = "^3.4.3"
-influxdb = "^5.3.1"
+influxdb-client = "^1.25.0"
+paho-mqtt = "^1.6.1"
 
 [tool.poetry.dev-dependencies]
 black = "^21.12b0"
