@@ -15,9 +15,8 @@ password = ""
 def publish(client):
     while True:
         time.sleep(1)
-        msg = f"{80-random.randint(0,10)}"
+        msg = f"mock-device/{80-random.randint(0,10)}"
         result = client.publish(topic, msg)
-        # result: [0, 1]
         status = result[0]
         if status == 0:
             print("success")

@@ -1,0 +1,15 @@
+<html>
+
+<head>
+    <title>Item Details</title>
+    <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>
+</head>
+
+<body>
+    <script src="{{ url_for('static', path='/getHeartbeat.js') }}"></script>
+    <h1>Item ID: {{ did }}</h1>
+    <div id="graph-container">
+    </div>
+</body>
+
+</html>

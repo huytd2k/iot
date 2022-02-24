@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <title>Add a patient information</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script src="{{ url_for('static', path='/addPatient.js') }}"></script>
+    <form action="/api/patient" , method="POST" id="add_patient_form">
+        <label for="device_id">Device ID:</label><br>
+        <input type="text" id="device_id" name="device_id"><br>
+        <label for="doctor_email">Doctor email:</label><br>
+        <input type="text" id="doctor_email" name="doctor_email"><br>
+        <label for="threshhold">Heartrate Threshhold</label><br>
+        <input type="text" id="threshhold" name="threshhold">
+    </form>
+    <div>
+        <button onclick="createPatient()" id="create_patient">Create</button>
+    </div>
+</body>
+
+</html>
