@@ -18,7 +18,9 @@ const plotly = (first, second) => {
 }
 
 const unpack = (arr, key) => arr.map((a) => a.values[key])
-fetchData("mock-device").then(
+paths = window.location.pathname.split("/")
+device = paths[paths.length - 1]
+fetchData(device).then(
     (res) => {
         plotly(unpack(res.records, "_time"), unpack(res.records, "_value"));
     }
