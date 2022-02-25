@@ -7,7 +7,7 @@ import requests
 import smtplib, ssl
 
 
-def send_email(msg):
+def send_email(msg, to_address):
     port = 465  # For SSL
     password = ""
 
@@ -16,7 +16,7 @@ def send_email(msg):
 
     with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
         server.login("huytran2khust@gmail.com", password)
-        server.sendmail("huytran2khust@gmail.com", "huytd2k@gmail.com", msg)
+        server.sendmail("huytran2khust@gmail.com", to_address, msg)
         print("SENT")
 
 
@@ -54,7 +54,7 @@ def subscribe(client: mqtt_client, influx_client: InfluxDBClient):
 
         if patient:
             if heartbeat < patient['heartrate_threshhold']:
-                send_email(f"Patient with device {device_id} is with heartrate {heartbeat} below threshhold {patient['heartrate_threshhold']}")
+                send_email(f"Patient with device {device_id} is with heartrate {heartbeat} below threshhold {patient['heartrate_threshhold']}", patient['doctor_email'])
 
         point = (
             Point("heartbeat")
